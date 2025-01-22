@@ -1,3 +1,6 @@
+document.addEventListener("DOMContentLoaded", function () {
+    document.body.style.overflowX = "hidden";
+});
 (function ($) {
     "use strict";
 
