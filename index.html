@@ -526,7 +526,7 @@
     <!-- Team End -->
 
 
-  <!-- Appointment Section Start -->
+ <!-- Appointment Section Start -->
 <div id="appointment" class="container-xxl py-5">
   <div class="container">
     <div class="row g-5">
@@ -582,11 +582,28 @@
 /* Sticky Column Style */
 .sticky-column {
   position: sticky;
-  top: 20px; /* Adjust top offset */
+  top: 80px; /* Adjust this to match your menu's height */
   align-self: start;
 }
-</style>
 
+/* Disable Sticky on Mobile */
+@media (max-width: 991px) {
+  .sticky-column {
+    position: static;
+  }
+}
+
+/* Adjust for Overlapping on Mobile */
+@media (max-width: 767px) {
+  #appointment .row.g-5 {
+    flex-direction: column;
+  }
+
+  iframe {
+    margin-top: 20px;
+  }
+}
+</style>
 
 
 
