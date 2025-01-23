@@ -592,26 +592,37 @@
         </div>
     </div>
 </div>
-    <script> fetch("https://script.google.com/macros/s/AKfycbxl5LlBCYsi8w1MNCsgi5cFuF7Km_cuh77_ivDgCbQuRf7p_2U_e86EwieP7SdNyZWp0A/exec", {
-  method: "POST",
-  headers: { "Content-Type": "application/json" },
-  body: JSON.stringify({
-    name: "John Doe",
-    email: "johndoe@example.com",
-    phone: "1234567890",
-    service: "Consultation",
-    message: "Looking for property advice.",
-  }),
-})
-  .then((response) => response.json())
-  .then((data) => {
-    if (data.status === "success") {
-      alert("Appointment submitted successfully!");
-    } else {
-      alert("Error: " + data.message);
-    }
+    <script> document.getElementById("appointment-form").addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  const formData = {
+    name: document.getElementById("name").value,
+    email: document.getElementById("email").value,
+    phone: document.getElementById("phone").value,
+    service: document.getElementById("service").value,
+    message: document.getElementById("message").value,
+  };
+
+  fetch("https://script.google.com/macros/s/AKfycbxWw8bFXWyiF7ZJD9Ennse-DA-FEBuyxswes1gMruTpPQOXeNymiHD8TLVTO-JZwGZvHg/exec", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(formData),
   })
-  .catch((error) => console.error("Error:", error));
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      return response.json();
+    })
+    .then((data) => {
+      if (data.status === "success") {
+        alert("Appointment successfully submitted!");
+      } else {
+        alert("Error: " + data.message);
+      }
+    })
+    .catch((error) => console.error("Error:", error));
+});
 
 
  </script>
