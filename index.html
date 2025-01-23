@@ -592,37 +592,6 @@
         </div>
     </div>
 </div>
-    <script> document.getElementById("appointment-form").addEventListener("submit", function (e) {
-  e.preventDefault();
-
-  const formData = {
-    name: document.getElementById("name").value,
-    email: document.getElementById("email").value,
-    phone: document.getElementById("phone").value,
-    service: document.getElementById("service").value,
-    message: document.getElementById("message").value,
-  };
-
-  fetch("https://script.google.com/macros/s/AKfycbxWw8bFXWyiF7ZJD9Ennse-DA-FEBuyxswes1gMruTpPQOXeNymiHD8TLVTO-JZwGZvHg/exec", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(formData),
-  })
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-      return response.json();
-    })
-    .then((data) => {
-      if (data.status === "success") {
-        alert("Appointment successfully submitted!");
-      } else {
-        alert("Error: " + data.message);
-      }
-    })
-    .catch((error) => console.error("Error:", error));
-}); </script>
 <!-- Appointment End -->
 
 
