@@ -1,3 +1,4 @@
+
 /********** Template CSS **********/
 :root {
     --primary: #FF0000;
@@ -30,7 +31,7 @@ h6,
 }
 
 .back-to-top {
-    position: fixed;
+    position: sticky;
     display: none;
     right: 30px;
     bottom: 30px;
