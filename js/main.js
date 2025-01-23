@@ -85,3 +85,28 @@ document.addEventListener("DOMContentLoaded", function () {
     
 })(jQuery);
 
+document.getElementById("appointment-form").addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const form = e.target;
+    const formData = new FormData(form);
+
+    const data = Object.fromEntries(formData.entries());
+
+    fetch("YOUR_WEB_APP_URL", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    })
+      .then((response) => response.json())
+      .then((result) => {
+        if (result.status === "success") {
+          alert("Appointment successfully submitted!");
+          form.reset();
+        } else {
+          alert("There was an error. Please try again.");
+        }
+      })
+      .catch(() => alert("There was an error. Please try again."));
+  });
+
