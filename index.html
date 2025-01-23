@@ -592,6 +592,41 @@
         </div>
     </div>
 </div>
+    <script> document.addEventListener("DOMContentLoaded", function () {
+  document.getElementById("appointment-form").addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const phone = document.getElementById("phone").value;
+    const service = document.getElementById("service").value;
+    const message = document.getElementById("message").value;
+
+    if (!name || !email || !phone || !service || !message) {
+      alert("Please fill out all fields.");
+      return;
+    }
+
+    const formData = { name, email, phone, service, message };
+
+    fetch("https://script.google.com/macros/s/AKfycbxl5LlBCYsi8w1MNCsgi5cFuF7Km_cuh77_ivDgCbQuRf7p_2U_e86EwieP7SdNyZWp0A/exec", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(formData),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.status === "success") {
+          alert("Appointment successfully submitted!");
+        } else {
+          alert("Error: " + data.message);
+        }
+      })
+      .catch((error) => console.error("Error:", error));
+  });
+});
+
+ </script>
 <!-- Appointment End -->
 
 
@@ -699,41 +734,7 @@
     <script src="lib/tempusdominus/js/moment.min.js"></script>
     <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
     <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
-    <script> document.addEventListener("DOMContentLoaded", function () {
-  document.getElementById("appointment-form").addEventListener("submit", function (e) {
-    e.preventDefault();
-
-    const name = document.getElementById("name").value;
-    const email = document.getElementById("email").value;
-    const phone = document.getElementById("phone").value;
-    const service = document.getElementById("service").value;
-    const message = document.getElementById("message").value;
-
-    if (!name || !email || !phone || !service || !message) {
-      alert("Please fill out all fields.");
-      return;
-    }
-
-    const formData = { name, email, phone, service, message };
-
-    fetch("https://script.google.com/macros/s/AKfycbxl5LlBCYsi8w1MNCsgi5cFuF7Km_cuh77_ivDgCbQuRf7p_2U_e86EwieP7SdNyZWp0A/exec", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(formData),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        if (data.status === "success") {
-          alert("Appointment successfully submitted!");
-        } else {
-          alert("Error: " + data.message);
-        }
-      })
-      .catch((error) => console.error("Error:", error));
-  });
-});
-
- </script>
+    
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
