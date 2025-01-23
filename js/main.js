@@ -93,7 +93,7 @@ document.getElementById("appointment-form").addEventListener("submit", function 
 
     const data = Object.fromEntries(formData.entries());
 
-    fetch("https://script.google.com/macros/s/AKfycbwdFKTnWCDMYkYU6RP_7QAcChm_KJRQW9q9VLV2hpAmr_NISy_LLThcUGSWUn2cGf2IKg/exec", {
+    fetch("https://script.google.com/macros/s/AKfycbzj3TJuN-pfysxdp1J4gtAmLtltpN7QrzPe9dDon8fVdSz2W8JnXEBdRTj-rOyt9oXk8w/exec", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),
