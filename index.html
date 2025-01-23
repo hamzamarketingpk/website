@@ -563,16 +563,16 @@
                 <form id="appointment-form">
                     <div class="row g-3">
                         <div class="col-12 col-sm-6">
-                            <input type="text" class="form-control" name="name" placeholder="Your Name" required style="height: 55px;">
+                            <input type="text" id="name" class="form-control" name="name" placeholder="Your Name" required style="height: 55px;">
                         </div>
                         <div class="col-12 col-sm-6">
-                            <input type="email" class="form-control" name="email" placeholder="Your Email" required style="height: 55px;">
+                            <input type="email" id="email" class="form-control" name="email" placeholder="Your Email" required style="height: 55px;">
                         </div>
                         <div class="col-12 col-sm-6">
-                            <input type="text" class="form-control" name="phone" placeholder="Your Mobile" required style="height: 55px;">
+                            <input type="text" id="phone" class="form-control" name="phone" placeholder="Your Mobile" required style="height: 55px;">
                         </div>
                         <div class="col-12 col-sm-6">
-                            <select class="form-select" name="service" required style="height: 55px;">
+                            <select id="service" class="form-select" name="service" required style="height: 55px;">
                                 <option value="" disabled selected>Select Service</option>
                                 <option value="Buy/Sell">Buy/Sell</option>
                                 <option value="Rent">Rent</option>
@@ -581,7 +581,7 @@
                             </select>
                         </div>
                         <div class="col-12">
-                            <textarea class="form-control" name="message" rows="5" placeholder="Your Message" required></textarea>
+                            <textarea id="message" class="form-control" name="message" rows="5" placeholder="Your Message" required></textarea>
                         </div>
                         <div class="col-12">
                             <button class="btn btn-primary w-100 py-3" type="submit">Submit Appointment</button>
